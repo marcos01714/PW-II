@@ -54,26 +54,71 @@
   </div>
 </nav>
     <div class="container">
-      <h1>Laço de repetição FOR</h1>
-      <p>Esse laço de repetição é mais utilizado e mais prático</p>
-      <pre>
-          for($i = 0; $i < 10; $i++){
-              echo "$i"; 
-          }
-      </pre>
-      <?php
-        for($i = 0; $i <= 3; $i++){
-            echo "<b>0111</b><br>"; 
+    <h1>Array</h1>
+    <p>As variáveis do tipo array são muito utilizadas quando vamos listar coisas.
+        Os arrays em php são listas de qualquer tipo de dados.
+    </p>
+    <pre>
+            $array = [];
+            $array = Array();
+            $array[0] = "OI";
+            $array[2] = 10;
+            $array["Fernando"] = "Professor";
+            $array[$array[2]] = "Teste";
+    </pre>
+    <?php
+                    //   1    2     3       4      5     6
+        $array = Array("OI", 10, "Prof", "Teste", 1.99, true);
+        echo "<h2>Como saber se deu certo? </h2>";
+        Var_dump($array);
+        echo "<pre>";
+        print_r($array);
+        echo "</pre>";
+        echo "<pre>";
+        Var_dump($array);
+        echo "</pre>";
+
+        for($i = 0; $i < count($array); $i++){
+            echo "$array[$i] <br>";
         }
-        echo "<hr>";
-        for($i = 0; $i <= 3; $i++){
-            ?>
-                <b>0111</b><br>
-            <?php
-        }
-      ?>
-    
-  </div>
+    ?>
+
+    <p>Existem diversas formas de criar uma variável array.</p>
+    <pre>
+        array(
+            chave => valor;
+            chave2 => valor2;
+            chave3 => valor3;
+            ...
+        )
+    </pre>
+    <p>Esse tipo de Array (chave e valor) funciona da mesma forma porém não existem mais os índices com números passando a usar string com chave para os valores.</p>
+    <?php
+        $array = array(
+            "foo" => "bar",
+            "bar" => "foo",
+        );
+
+        // Utilizando a sintaxe curta
+        $array = [
+            "foo" => "bar",
+            "bar" => "foo",
+        ];
+        echo "<pre>";
+        print_r($array);
+        echo "</pre>";
+
+        $resultados = [
+            "Id" => 1,
+            "Nome" => "Marcos",
+            "Idade" => 17,
+            "Salário" => 5678.95,
+        ];
+        echo "<pre>";
+        print_r($resultados);
+        echo "</pre>";
+    ?>
+</div>
     <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>
