@@ -43,6 +43,9 @@
           <a class="nav-link" href="array.php">Array</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="exercicios-array.php">Exercícios array</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" >Disabled</a>
         </li>
       </ul>
@@ -118,6 +121,24 @@
         print_r($resultados);
         echo "</pre>";
     ?>
+    <p>Para varrer todo o array de chave e valores precisamos de um laço de repetição exclusivo chamadoforeach()</p>
+        <pre>
+            foreach($array as $CHAVE => $VALOR)
+            {
+                echo $array[$CHAVE];
+                //ou
+                echo $VALOR;
+            }
+        </pre>
+        <?php    //  Variavel Array  Chave   valor
+            foreach($resultados as $CHAVE => $VALOR)
+            {
+                echo "Valor pela Chave:".$resultados[$CHAVE]."<br>";
+                //ou
+                echo "Apenas Valor: ".$VALOR."<br>";
+                echo "Apenas Chave: ".$CHAVE."<br>";
+            }
+            ?>
 </div>
     <script src="bootstrap.bundle.min.js"></script>
 </body>
