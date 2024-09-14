@@ -1,3 +1,4 @@
+<?php include "cabecalho.php"; ?>
 <h1>Funções nativas</h1>
 <p>Funções nativas são funções que o próprio php nos fornece, como por exemplo:
     a função isset(), //Verifica se existe a variável
@@ -41,3 +42,4 @@
         echo "</h1>";
     ?>
 <h1>Funções personalizadas</h1>
+<?php include "rodape.php"; ?>
