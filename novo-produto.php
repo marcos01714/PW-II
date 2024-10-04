@@ -1,7 +1,7 @@
 <?php include "cabecalho.php"?>
 
 <?php
-    if(isset ($_POST["nome"]) && isset ($_POST["valor"]) && isset ($_POST["codigobarras"]) && isset ($_POST["datavalidade"])) {
+    if(isset ($_POST["nome"]) && isset ($_POST["valor"]) && isset ($_POST["codigobarras"]) && isset ($_POST["datavalidade"])){
         if( empty($_POST["nome"])) {
             echo "<div class='alert alert-danger'>Campo nome não pode estar em branco</div>";
         }
@@ -15,8 +15,23 @@
             echo "<div class='alert alert-danger'>Campo data de validade não pode estar em branco</div>";
         }
         else {
+            include "conexao.php";
+
+            $nome = $_POST["nome"];
+            $valor = str_replace("," , "." , $_POST["valor"]);
+            $codigobarras = $_POST["codigobarras"];
+
+            $query = "INSERT INTO produtos (descricao, valor, codigo_barras, ativo) VALUES ('$nome', $valor, '$codigobarras', 1)";
+
+            $resultado = $conexao->query($query);
+            if ($resultado)
+            {
+                echo "<div class='alert alert-success'>Salvo no banco com sucesso</div>"
+            }
+
             //Executa a lógica do programa
             //Salvar no banco 
+            echo "<h1>Salvo no banco com sucesso</h1>"
         }
     }
 
