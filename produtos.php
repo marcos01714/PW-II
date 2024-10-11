@@ -16,6 +16,23 @@
     else
     {
         $pesquisa = "";
+        include "conexao.php";
+        $sql = "SELECT id, descricao, valor, codigo_barras FROM produtos ORDER BY id desc";
+        $resultado = $conexao -> query($sql);
+        if ($resultado -> num_rows > 0) {
+            while ($row = $resultado -> fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["id"] . "</td>";
+                echo "<td>" . $row["descricao"] . "</td>";
+                echo "<td>" . $row["valor"] . "</td>";
+                echo "<td><a href='editar_produto.php?id=$row[id]' class='btn btn-warning'>Editar</a></td>";
+                echo "<td><a class='btn btn-danger'>Excluir</a></td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='3'>Nenhum registro encontrado</td></tr>";
+        }
+        $conexao->close();
     }
 ?>
 

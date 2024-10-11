@@ -46,6 +46,9 @@
           <a class="nav-link" href="exercicios-array.php">Exercícios array</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="produtos.php">Produtos</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="novo-produto.php">Novo produto</a>
         </li>
         <li class="nav-item">
