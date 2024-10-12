@@ -7,10 +7,18 @@
         if( empty($pesquisa)) 
         {
             //Se a variável estiver vazia executa aqui
+            include "conexao.php";
+            $sql = "SELECT id, descricao, valor, codigo_barras FROM produtos ORDER BY id desc";
+            $resultado = $conexao -> query($sql);
+            $conexao -> close();
         }
         else
         {
             //Aqui vai a lógica da pesquisa
+            include "conexao.php";
+            $sql = "SELECT id, descricao, valor, codigo_barras FROM produtos WHERE descricao LIKE '%$pesquisa%' ORDER BY id desc";
+            $resultado = $conexao -> query($sql);
+            $conexao -> close();
         }
     }
     else
@@ -19,19 +27,6 @@
         include "conexao.php";
         $sql = "SELECT id, descricao, valor, codigo_barras FROM produtos ORDER BY id desc";
         $resultado = $conexao -> query($sql);
-        if ($resultado -> num_rows > 0) {
-            while ($row = $resultado -> fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["id"] . "</td>";
-                echo "<td>" . $row["descricao"] . "</td>";
-                echo "<td>" . $row["valor"] . "</td>";
-                echo "<td><a href='editar_produto.php?id=$row[id]' class='btn btn-warning'>Editar</a></td>";
-                echo "<td><a class='btn btn-danger'>Excluir</a></td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "<tr><td colspan='3'>Nenhum registro encontrado</td></tr>";
-        }
         $conexao->close();
     }
 ?>
@@ -76,22 +71,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php for ($i = 0; $i < 25; $i++)
-                                {
-                                    echo "<tr>
-                                            <td>Id $i</td>
-                                            <td>Descrição $i</td>
-                                            <td>Valor $i</td>
-                                            <td>Código de barras $i</td>
-                                            <td>Imagem $i</td>
-                                            <td>
-                                                <a href='' class='btn btn-warning'>Editar</a>
-                                            </td>
-                                            <td>
-                                                <a href='' class='btn btn-danger'>Excluir</a>
-                                            </td>
-                                        </tr>";
-                                }                                 
+                                <?php 
+                                    if ($resultado -> num_rows > 0) {
+                                        while ($row = $resultado -> fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<td>" . $row["id"] . "</td>";
+                                            echo "<td>" . $row["descricao"] . "</td>";
+                                            echo "<td>" . $row["valor"] . "</td>";
+                                            echo "<td><a href='editar_produto.php?id=$row[id]' class='btn btn-warning'>Editar</a></td>";
+                                            echo "<td><a href='excluir_produto.php?id=$row[id]' class='btn btn-danger'>Excluir</a></td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='3'>Nenhum registro encontrado</td></tr>";
+                                    }             
                                 ?>
                             </tbody>
                         </table>
