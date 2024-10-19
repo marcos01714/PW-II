@@ -32,6 +32,14 @@
 ?>
 
 <br>
+<?php
+    if (isset($_GET["erro"]) && !empty($_POST["erro"])) {
+        echo "<div class="alert alert-danger">";
+        echo $_GET["erro"];
+        echo "</div>";
+    }
+?>
+<br>
 <div class="row">
     <div class="col-12">
         <div class="card">
