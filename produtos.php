@@ -34,7 +34,7 @@
 <br>
 <?php
     if (isset($_GET["erro"]) && !empty($_POST["erro"])) {
-        echo "<div class="alert alert-danger">";
+        echo "<div class='alert alert-danger'>";
         echo $_GET["erro"];
         echo "</div>";
     }
@@ -49,7 +49,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
-                        <a href="novo-produto.php" class="btn btn-success">
+                        <a href="novo_produto.php" class="btn btn-success">
                             Novo Produto
                         </a>
                     </div>
