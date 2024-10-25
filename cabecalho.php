@@ -52,6 +52,12 @@
           <a class="nav-link" href="novo_produto.php">Novo produto</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="categoria.php">Categorias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="nova_categoria.php">Nova categoria</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" >Disabled</a>
         </li>
       </ul>

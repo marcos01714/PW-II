@@ -36,6 +36,11 @@ $script = "
     ('Aspirador de Pó - Sem Fio', 599.90, '1234567890140', 1),
     ('Secador de Cabelo - 2200W', 199.90, '1234567890141', 1),
     ('Jogo de Lençóis - 150 Fios', 159.90, '1234567890142', 1);
+
+    CREATE TABLE categoria (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        nome VARCHAR(80) NOT NULL
+    );
 ";
 
 $conexao = new mysqli($servidor, $usuario, $senha, $banco);
