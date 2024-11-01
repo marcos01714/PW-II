@@ -25,7 +25,7 @@
     <?php 
         if (isset($_GET["erro"]) && $_GET["erro"] == 1) {
             echo "<div class='alert alert-danger' role='alert'>";
-            echo "$_GET["erro"]";
+            echo $_GET["erro"];
             echo "</div>";
         }
     ?>
@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-2">
                             <a href="novo_produto.php" class="btn btn-success">
-                                Novo Produto
+                                Nova categoria
                             </a>
                         </div>
                         <div class="col-8">
@@ -68,7 +68,25 @@
                                     <?php
                                         if ($resultado -> num_rows >0) {
                                             while ($row = $resultado -> fetch_assoc()) {
-                                                
+                                                echo "<tr>";
+                                                echo "<td>" . $row["id"] . "</td>";
+                                                echo "<td>" . $row["nome"] . "</td>";
+                                                echo "<td>" . $row["nome"] . "</td>";
+                                                echo "<td><a href='editar_categoria.php?id=$row[id]' class='btn btn-warning'>Editar</td>";
+                                                echo "<td><a href='excluir_categoria.php?id=$row[id]' class='btn btn-danger'>Excluir</td>";
+                                                echo "</tr>";
                                             }
+                                        } else {
+                                            echo "<tr><td colspan='3'>Nenhum registro encontrado</td></tr>";
                                         }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
 <?php include "rodape.php"; ?>
