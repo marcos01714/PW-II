@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-2">
-                            <a href="novo_produto.php" class="btn btn-success">
+                            <a href="nova_categoria.php" class="btn btn-success">
                                 Nova categoria
                             </a>
                         </div>
@@ -70,7 +70,6 @@
                                             while ($row = $resultado -> fetch_assoc()) {
                                                 echo "<tr>";
                                                 echo "<td>" . $row["id"] . "</td>";
-                                                echo "<td>" . $row["nome"] . "</td>";
                                                 echo "<td>" . $row["nome"] . "</td>";
                                                 echo "<td><a href='editar_categoria.php?id=$row[id]' class='btn btn-warning'>Editar</td>";
                                                 echo "<td><a href='excluir_categoria.php?id=$row[id]' class='btn btn-danger'>Excluir</td>";

@@ -41,7 +41,13 @@ $script = "
         id INT PRIMARY KEY AUTO_INCREMENT,
         nome VARCHAR(80) NOT NULL
     );
-";
+    
+    ALTER TABLE PRODUTOS
+    ADD COLUMN categoria_id INT;
+
+    ALTER TABLE PRODUTOS
+    ADD CONSTRAINT fk_produtos_categoria
+    FOREIGN KEY (categoria_id) REFERENCES categoria (id);";
 
 $conexao = new mysqli($servidor, $usuario, $senha, $banco);
 
