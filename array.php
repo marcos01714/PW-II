@@ -63,7 +63,7 @@
         print_r($resultados);
         echo "</pre>";
     ?>
-    <p>Para varrer todo o array de chave e valores precisamos de um laço de repetição exclusivo chamadoforeach()</p>
+    <p>Para varrer todo o array de chave e valores precisamos de um laço de repetição exclusivo chamado foreach()</p>
         <pre>
             foreach($array as $CHAVE => $VALOR)
             {

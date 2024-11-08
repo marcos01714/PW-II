@@ -1,6 +1,7 @@
 <?php include "cabecalho.php"; ?>
     <?php
         if(isset($_GET["pesquisa"])) {
+            $pesquisa = $_GET["pesquisa"];
             if(empty($pesquisa)) {
                 include "conexao.php";
                 $sql = "SELECT id, nome FROM categoria ORDER BY id desc";
@@ -44,7 +45,7 @@
                             </a>
                         </div>
                         <div class="col-8">
-                            <form action="produtos.php" method="get">
+                            <form action="categoria.php" method="get">
                             <div class="input-group mb-3">
                                 <input type="text" name="pesquisa" value="<?php echo $pesquisa; ?>" class="form-control" placeholder="Digite sua pesquisa aqui...">
                                 <button class="btn btn-primary" type="submit">
