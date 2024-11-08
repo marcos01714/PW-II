@@ -8,7 +8,7 @@
         {
             //Se a variável estiver vazia executa aqui
             include "conexao.php";
-            $sql = "SELECT id, descricao, valor, codigo_barras FROM produtos ORDER BY id desc";
+            $sql = "SELECT P.id, P.descricao, P.valor, P.codigo_barras, P.categoria_id, C.nome FROM produtos P LEFT JOIN categoria C ON (P.categoria_id = C.id) ORDER BY P.id desc";
             $resultado = $conexao -> query($sql);
             $conexao -> close();
         }
@@ -16,7 +16,7 @@
         {
             //Aqui vai a lógica da pesquisa
             include "conexao.php";
-            $sql = "SELECT id, descricao, valor, codigo_barras FROM produtos WHERE descricao LIKE '%$pesquisa%' ORDER BY id desc";
+            $sql = "SELECT P.id, P.descricao, P.valor, P.codigo_barras, P.categoria_id, C.nome FROM produtos P LEFT JOIN categoria C ON (P.categoria_id = C.id) WHERE P.descricao LIKE '%$pesquisa%' ORDER BY P.id desc";
             $resultado = $conexao -> query($sql);
             $conexao -> close();
         }
@@ -25,7 +25,7 @@
     {
         $pesquisa = "";
         include "conexao.php";
-        $sql = "SELECT id, descricao, valor, codigo_barras FROM produtos ORDER BY id desc";
+        $sql = "SELECT P.id, P.descricao, P.valor, P.codigo_barras, P.categoria_id, C.nome FROM produtos P LEFT JOIN categoria C ON (P.categoria_id = C.id) ORDER BY P.id desc";
         $resultado = $conexao -> query($sql);
         $conexao->close();
     }
@@ -71,6 +71,7 @@
                             <thead>
                                 <tr>
                                 <th scope="col">Id</th>
+                                <th scope="col">Categoria</th>
                                 <th scope="col">Descrição</th>
                                 <th scope="col">Valor</th>
                                 <th scope="col">Código de barras</th>
@@ -84,8 +85,10 @@
                                         while ($row = $resultado -> fetch_assoc()) {
                                             echo "<tr>";
                                             echo "<td>" . $row["id"] . "</td>";
+                                            echo "<td>" . $row["nome"] . "</td>";
                                             echo "<td>" . $row["descricao"] . "</td>";
                                             echo "<td>" . $row["valor"] . "</td>";
+                                            echo "<td>" . $row["codigo_barras"] . "</td>";
                                             echo "<td><a href='editar_produto.php?id=$row[id]' class='btn btn-warning'>Editar</a></td>";
                                             echo "<td><a href='excluir_produto.php?id=$row[id]' class='btn btn-danger'>Excluir</a></td>";
                                             echo "</tr>";
