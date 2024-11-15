@@ -47,7 +47,20 @@ $script = "
 
     ALTER TABLE PRODUTOS
     ADD CONSTRAINT fk_produtos_categoria
-    FOREIGN KEY (categoria_id) REFERENCES categoria (id);";
+    FOREIGN KEY (categoria_id) REFERENCES categoria (id);
+    
+    CREATE TABLE USUARIOS (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        loginUser VARCHAR(50) NOT NULL,
+        senha VARCHAR(80) NOT NULL,
+        ativo BIT DEFAULT 1
+    );
+    
+    CREATE TABLE PERMISSOES (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        descricao VARCHAR(150) NOT NULL,
+        role VARCHAR(50) NOT NULL
+    );";
 
 $conexao = new mysqli($servidor, $usuario, $senha, $banco);
 

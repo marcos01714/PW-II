@@ -19,31 +19,21 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.php">Página Inicial</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="variavel.php">Variável</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="if.php">If</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Anotações
           </a>
           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="variavel.php">Variável</a></li>
+            <li><a class="dropdown-item" href="if.php">If</a></li>
             <li><a class="dropdown-item" href="while.php">While</a></li>
             <li><a class="dropdown-item" href="for.php">For</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="foreach.php">Foreach</a></li>
+            <li><a class="dropdown-item" href="bootstrap.php">Bootstrap</a></li>
+            <li><a class="dropdown-item" href="array.php">Array</a></li>
+            <li><a class="dropdown-item" href="exercicios-array.php">Exercícios array</a></li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="bootstrap.php">Bootstrap</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="array.php">Array</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="exercicios-array.php">Exercícios array</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="produtos.php">Produtos</a>
@@ -58,13 +48,12 @@
           <a class="nav-link" href="nova_categoria.php">Nova categoria</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" >Disabled</a>
+          <a class="nav-link" href="usuarios.php">Usuários</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="novo_usuario.php">Novo Usuário</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
