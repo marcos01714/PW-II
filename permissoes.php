@@ -11,7 +11,7 @@
         }
         else {
             include "conexao.php";
-            $sql = "SELECT id, loginUser, senha FROM usuarios WHERE loginUser LIKE '%$pesquisa%' ORDER BY loginUser desc";
+            $sql = "SELECT id, descricao, rolePermissao FROM permissoes WHERE descricao LIKE '%$pesquisa%' ORDER BY descricao desc";
             $resultado = $conexao -> query($sql);
             $conexao -> close();
         }
@@ -19,7 +19,7 @@
     else {
         $pesquisa = "";
         include "conexao.php";
-        $sql = "SELECT id, loginUser, senha FROM usuarios ORDER BY id desc";
+        $sql = "SELECT id, descricao, rolePermissao FROM permissoes ORDER BY descricao desc";
         $resultado = $conexao -> query($sql);
         $conexao -> close();
     }
@@ -41,17 +41,17 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                Lista de Produtos
+                Lista de Permissões
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
-                        <a href="novo_usuario.php" class="btn btn-success">
-                            Novo Usuário
+                        <a href="nova_permissao.php" class="btn btn-success">
+                            Nova Permissão
                         </a>
                     </div>
                     <div class="col-8">
-                        <form action="usuarios.php" method="get">
+                        <form action="permissoes.php" method="get">
                         <div class="input-group mb-3">
                             <input type="text" name="pesquisa" value="<?php echo $pesquisa; ?>" class="form-control" placeholder="Digite sua pesquisa aqui...">
                             <button class="btn btn-primary" type="submit">
@@ -68,8 +68,8 @@
                             <thead>
                                 <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">Login</th>
-                                <th scope="col">Senha</th>
+                                <th scope="col">Descrição</th>
+                                <th scope="col">Role</th>
                                 <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -79,10 +79,10 @@
                                         while ($row = $resultado -> fetch_assoc()) {
                                             echo "<tr>";
                                             echo "<td>" . $row["id"] . "</td>";
-                                            echo "<td>" . $row["loginUser"] . "</td>";
-                                            echo "<td>" . $row["senha"] . "</td>";
-                                            echo "<td><a href='editar_usuarios.php?id=$row[id]' class='btn btn-warning'>Editar</a></td>";
-                                            echo "<td><a href='excluir_usuarios.php?id=$row[id]' class='btn btn-danger'>Excluir</a></td>";
+                                            echo "<td>" . $row["descricao"] . "</td>";
+                                            echo "<td>" . $row["rolePermissao"] . "</td>";
+                                            echo "<td><a href='editar_permissoes.php?id=$row[id]' class='btn btn-warning'>Editar</a></td>";
+                                            echo "<td><a href='excluir_permissoes.php?id=$row[id]' class='btn btn-danger'>Excluir</a></td>";
                                             echo "</tr>";
                                         }
                                     } else {
