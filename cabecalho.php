@@ -53,6 +53,12 @@
         <li class="nav-item">
           <a class="nav-link" href="novo_usuario.php">Novo Usuário</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="permissoes.php">Permissões</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="nova_permissao.php">Nova Permissão</a>
+        </li>
       </ul>
     </div>
   </div>

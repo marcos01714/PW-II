@@ -1,8 +1,8 @@
 <?php include "cabecalho.php"; ?>
 <?php
 if (isset($_POST['id']) && !empty($_POST['id']) &&
-    isset($_POST['loginUser']) && !empty($_POST['descricao']) && 
-    isset($_POST['senha']) && !empty($_POST['rolePermissao'])) {
+    isset($_POST['descricao']) && !empty($_POST['descricao']) && 
+    isset($_POST['rolePermissao']) && !empty($_POST['rolePermissao'])) {
 
             include 'conexao.php';
             $sql = "UPDATE permissoes SET descricao = '$_POST[descricao]', rolePermissao = '$_POST[rolePermissao]' WHERE id = $_POST[id]";
@@ -40,11 +40,31 @@ if (isset($_POST['id']) && !empty($_POST['id']) &&
     }
 ?>
 
-<form action="editar_permissoes.php?id=<?php echo $id; ?>"method="post">
-    <input name="id" value="<?php echo $id ?>"/>
-    <input name="descricao" value="<?php echo $descricao ?>"/>
-    <input name="rolePermissao" value="<?php echo $rolePermissao ?>"/>
-    <button type="submit">Salvar alterações</button>
-</form>
+<div class="row">
+    <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">Editar permissão</div>
+                <div class="card-body">
+                    <form action="editar_permissoes.php?id=<?php echo $id; ?>"method="post">
+                        <label>Id</label>
+                        <br>
+                        <input class="form-control" name="id" value="<?php echo $id ?>"/>
+                        <br>
+                        <label>Descrição</label>
+                        <br>
+                        <input class="form-control" name="descricao" value="<?php echo $descricao ?>"/>
+                        <br>
+                        <label>Role</label>
+                        <br>
+                        <input class="form-control" name="rolePermissao" value="<?php echo $rolePermissao ?>"/>
+                        <br>
+                        <button type="submit" class='btn btn-success'>Salvar alterações</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <div class="col-4"></div>
+</div>
 
 <?php include "rodape.php"; ?>

@@ -18,7 +18,7 @@
         $descricao = $_POST["descricao"];
         $rolePermissao = $_POST["rolePermissao"];
         
-        $query = "INSERT INTO permissoes (descricao, rolePermissao) VALUES ('$descricao, $rolePermissao')";
+        $query = "INSERT INTO permissoes (descricao, rolePermissao) VALUES ('$descricao', '$rolePermissao')";
 
         $resultado = $conexao->query($query);
         if ($resultado) {
@@ -31,6 +31,7 @@
 }
 else {
     $descricao = "";
+    $rolePermissao = "";
 }
 ?>
 

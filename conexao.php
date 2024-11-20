@@ -42,24 +42,24 @@ $script = "
         nome VARCHAR(80) NOT NULL
     );
     
-    ALTER TABLE PRODUTOS
+    ALTER TABLE produtos
     ADD COLUMN categoria_id INT;
 
-    ALTER TABLE PRODUTOS
+    ALTER TABLE produtos
     ADD CONSTRAINT fk_produtos_categoria
     FOREIGN KEY (categoria_id) REFERENCES categoria (id);
     
-    CREATE TABLE USUARIOS (
+    CREATE TABLE usuarios (
         id INT PRIMARY KEY AUTO_INCREMENT,
         loginUser VARCHAR(50) NOT NULL,
         senha VARCHAR(80) NOT NULL,
         ativo BIT DEFAULT 1
     );
     
-    CREATE TABLE PERMISSOES (
+    CREATE TABLE permissoes (
         id INT PRIMARY KEY AUTO_INCREMENT,
         descricao VARCHAR(150) NOT NULL,
-        role VARCHAR(50) NOT NULL
+        rolePermissao VARCHAR(50) NOT NULL
     );";
 
 $conexao = new mysqli($servidor, $usuario, $senha, $banco);

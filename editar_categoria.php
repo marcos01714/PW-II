@@ -38,10 +38,27 @@ if (isset($_POST['id']) && !empty($_POST['id']) &&
     }
 ?>
 
-<form action="editar_categoria.php?id=<?php echo $id; ?>"method="post">
-    <input name="id" value="<?php echo $id ?>"/>
-    <input name="nome" value="<?php echo $nome ?>"/>
-    <button type="submit">Salvar alterações</button>
-</form>
+<div class="row">
+    <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">Editar categoria</div>
+                <div class="card-body">
+                    <form action="editar_categoria.php?id=<?php echo $id; ?>"method="post">
+                        <label>Id</label>
+                        <br>
+                        <input class="form-control" name=id" value="<?php echo $id ?>"/>
+                        <br>
+                        <label>Nome</label>
+                        <br>
+                        <input class="form-control" name="nome" value="<?php echo $nome ?>"/>
+                        <br>
+                        <button type="submit" class='btn btn-success'>Salvar alterações</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <div class="col-4"></div>
+</div>
 
 <?php include "rodape.php"; ?>
