@@ -60,6 +60,14 @@ $script = "
         id INT PRIMARY KEY AUTO_INCREMENT,
         descricao VARCHAR(150) NOT NULL,
         rolePermissao VARCHAR(50) NOT NULL
+    );
+    
+    CREATE TABLE USUARIOS_PERMISSOES (
+        ID INT PRIMARY KEY AUTO_INCREMENT,
+        USUARIO_ID INT NOT NULL,
+        PERMISSAO_ID INT NOT NULL,
+        CONSTRAINT FK_USUARIO FOREIGN KEY (usuario_id) REFERENCES USUARIOS(ID) ON DELETE CASCADE,
+        CONSTRAINT FK_PERMISSAO FOREIGN KEY (permissao_id) REFERENCES PERMISSOES(ID) ON DELETE CASCADE
     );";
 
 $conexao = new mysqli($servidor, $usuario, $senha, $banco);
