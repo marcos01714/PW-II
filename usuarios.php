@@ -85,11 +85,11 @@
                                             echo "<td><a href='editar_usuarios.php?id=$row[id]' class='btn btn-warning'>Editar</a></td>";
                                             echo "<td><a href='excluir_usuarios.php?id=$row[id]' class='btn btn-danger'>Excluir</a></td>";
                                             if ($row["Ativo"]) {
-                                                echo "<td><a href='desativar_usuario.php?id=$row[id]' class='btn btn-danger'>Desativar</a></td>"
+                                                echo "<td><a href='desativar_usuario.php?id=$row[id]' class='btn btn-danger'>Desativar</a></td>";
                                             }else {
-                                                echo "<td><a href='ativar_usuario.php?id=$row[id]' class='btn btn-success'>Ativar</a></td>"
+                                                echo "<td><a href='ativar_usuario.php?id=$row[id]' class='btn btn-success'>Ativar</a></td>";
                                             }
-                                            echo "<td><a href='permissoes_usuario.php?id_usuario=$row[id]' class='btn btn-primary'>Permissões</a></td>"
+                                            echo "<td><a href='permissoes_usuarios.php?id_usuario=$row[id]' class='btn btn-primary'>Permissões</a></td>";
 
                                             echo "</tr>";
                                         }
